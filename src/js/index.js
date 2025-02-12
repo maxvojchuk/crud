@@ -1,6 +1,6 @@
 //1
-const getMovies = async () => {
-  const url = `http://localhost:3000/movies`;
+const getStudents = async () => {
+  const url = `http://localhost:3000/students`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -13,14 +13,14 @@ const getMovies = async () => {
     return {};
   }
 };
-console.log(getMovies());
+console.log(getStudents());
 //2
-const addMovies = async (movie) => {
-  const url = `http://localhost:3000/movies`;
+const addStudents = async (students) => {
+  const url = `http://localhost:3000/students`;
   try {
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(movie),
+      body: JSON.stringify(students),
       headers: {
         "Content-Type": "aplication/json",
       },
@@ -28,27 +28,29 @@ const addMovies = async (movie) => {
     if (!response.ok) {
       throw new Error(`Винникла помилка ${response.status}`);
     }
-    const adedMovie = await response.json();
-    return adedMovie;
+    const adedStudents = await response.json();
+    return adedStudents;
   } catch (error) {
     console.error(`Помилка при завантаженні ${error}`);
     return null;
   }
 };
-//   addMovies({
-//     title: "Screem",
-//     genre: "Horror",
-//     director: "Fridrih Nolan",
-//     year: 2000,
-//   })
-// );
+// addStudents({
+//   name: "Max Voychuk",
+//   age: 18,
+//   course: "Programing",
+//   skills: ["HTML", "CSS", "JavaScript", "React"],
+//   email: "maxvoichuk34@example.com",
+//   isEnrolled: false,
+// });
+
 //3
-const updeateMovie = async (id, movie) => {
-  const url = `http://localhost:3000/movies/${id}`;
+const updeateStudents = async (id, students) => {
+  const url = `http://localhost:3000/students/${id}`;
   try {
     const response = await fetch(url, {
       method: "PUT",
-      body: JSON.stringify(movie),
+      body: JSON.stringify(students),
       headers: {
         "Content-Type": "aplication/json",
       },
@@ -56,29 +58,29 @@ const updeateMovie = async (id, movie) => {
     if (!response.ok) {
       throw new Error(`Винникла помилка ${response.status}`);
     }
-    const upatedMovie = await response.json();
-    return upatedMovie;
+    const upatedStudents = await response.json();
+    return upatedStudents;
   } catch (error) {
     console.error(`Помилка при завантаженні ${error}`);
     return null;
   }
 };
-// console.log(
-//   updeateMovie(5, {
-//     id: "5",
-//     title: "Green",
-//     genre: "Novel",
-//     director: "Christopher N",
-//     year: 2015,
-//   })
-// );
+
+// updeateStudents(5, {
+//   id: "5",
+//   name: "Mykola Bondarenko",
+//   age: 18,
+//   course: "Web design",
+//   skills: ["Networking", "Ethical Hacking", "Linux", "Windows"],
+// });
+
 //4
-const updatePartOfMovie = async (id, movie) => {
-  const url = `http://localhost:3000/movies/${id}`;
+const updatePartOfStudents = async (id, students) => {
+  const url = `http://localhost:3000/students/${id}`;
   try {
     const response = await fetch(url, {
       method: "PATCH",
-      body: JSON.stringify(movie),
+      body: JSON.stringify(students),
       headers: {
         "Content-Type": "aplication/json",
       },
@@ -86,21 +88,21 @@ const updatePartOfMovie = async (id, movie) => {
     if (!response.ok) {
       throw new Error(`Винникла помилка ${response.status}`);
     }
-    const upatedMovie = await response.json();
-    return upatedMovie;
+    const upatedstudents = await response.json();
+    return upatedstudents;
   } catch (error) {
     console.error(`Помилка при завантаженні ${error}`);
     return null;
   }
 };
-// console.log(
-//   updatePartOfMovie(4, {
-//     year: 2015,
-//   })
-// );
+
+// updatePartOfStudents(4, {
+//   course: "JS",
+// });
+
 //5
-const deleteMovie = async (id) => {
-  const url = `http://localhost:3000/movies/${id}`;
+const deleteStudents = async (id) => {
+  const url = `http://localhost:3000/students/${id}`;
   try {
     const response = await fetch(url, {
       method: "DELETE",
@@ -115,4 +117,4 @@ const deleteMovie = async (id) => {
     return null;
   }
 };
-console.log(deleteMovie(3));
+deleteStudents(3);

@@ -1,46 +1,68 @@
 {
-  "movies": [
+  "students": [
     {
       "id": "1",
-      "title": "The Shawshank Redemption",
-      "genre": "Drama",
-      "director": "Frank Darabont",
-      "year": 1994
+      "name": "Ivan Petrenko",
+      "age": 15,
+      "course": "Web Development",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "email": "ivan.petrenko@example.com",
+      "isEnrolled": true
     },
     {
       "id": "2",
-      "title": "The Godfather",
-      "genre": "Crime",
-      "director": "Francis Ford Coppola",
-      "year": 1972
+      "name": "Olha Kovalenko",
+      "age": 16,
+      "course": "Game Development",
+      "skills": [
+        "C#",
+        "Unity"
+      ],
+      "email": "olha.kovalenko@example.com",
+      "isEnrolled": true
     },
     {
       "id": "4",
-      "title": "The Dark Knight",
-      "genre": "Action",
-      "director": "Christopher Nolan",
-      "year": 2015
+      "name": "Anastasia Ivanova",
+      "age": 17,
+      "course": "JS",
+      "skills": [
+        "Python",
+        "Pandas",
+        "Machine Learning"
+      ],
+      "email": "anastasia.ivanova@example.com",
+      "isEnrolled": true
     },
     {
       "id": "5",
-      "title": "Green",
-      "genre": "Novel",
-      "director": "Christopher N",
-      "year": 2015
+      "name": "Mykola Bondarenko",
+      "age": 18,
+      "course": "Web design",
+      "skills": [
+        "Networking",
+        "Ethical Hacking",
+        "Linux",
+        "Windows"
+      ]
     },
     {
-      "id": "6800",
-      "title": "Screem",
-      "genre": "Horror",
-      "director": "Fridrih Nolan",
-      "year": 2000
-    },
-    {
-      "id": "0602",
-      "title": "Screem",
-      "genre": "Horror",
-      "director": "Fridrih Nolan",
-      "year": 2000
+      "id": "d721",
+      "name": "Max Voychuk",
+      "age": 18,
+      "course": "Programing",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+      ],
+      "email": "maxvoichuk34@example.com",
+      "isEnrolled": false
     }
   ]
 }
