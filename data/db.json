@@ -63,6 +63,23 @@
       ],
       "email": "maxvoichuk34@example.com",
       "isEnrolled": false
+    },
+    {
+      "id": "eca2",
+      "name": "Макс fdff",
+      "age": 20,
+      "course": "fdgdfg",
+      "skills": [
+        "dfgdfgg",
+        "ll",
+        "l",
+        "l",
+        "l",
+        "l",
+        ""
+      ],
+      "email": "maksimvocjuk09@gmail.com",
+      "isEnrolled": false
     }
   ]
 }

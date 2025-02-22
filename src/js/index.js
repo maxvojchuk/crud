@@ -35,14 +35,6 @@ const addStudents = async (students) => {
     return null;
   }
 };
-// addStudents({
-//   name: "Max Voychuk",
-//   age: 18,
-//   course: "Programing",
-//   skills: ["HTML", "CSS", "JavaScript", "React"],
-//   email: "maxvoichuk34@example.com",
-//   isEnrolled: false,
-// });
 
 //3
 const updeateStudents = async (id, students) => {
@@ -66,14 +58,6 @@ const updeateStudents = async (id, students) => {
   }
 };
 
-// updeateStudents(5, {
-//   id: "5",
-//   name: "Mykola Bondarenko",
-//   age: 18,
-//   course: "Web design",
-//   skills: ["Networking", "Ethical Hacking", "Linux", "Windows"],
-// });
-
 //4
 const updatePartOfStudents = async (id, students) => {
   const url = `http://localhost:3000/students/${id}`;
@@ -96,10 +80,6 @@ const updatePartOfStudents = async (id, students) => {
   }
 };
 
-// updatePartOfStudents(4, {
-//   course: "JS",
-// });
-
 //5
 const deleteStudents = async (id) => {
   const url = `http://localhost:3000/students/${id}`;
@@ -117,4 +97,50 @@ const deleteStudents = async (id) => {
     return null;
   }
 };
-deleteStudents(3);
+
+document
+  .getElementById("get-students-btn")
+  .addEventListener("click", async () => {
+    const students = await getStudents();
+    const tbody = document.querySelector("#students-table tbody");
+    tbody.innerHTML = "";
+
+    students.forEach((student) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+          <td>${student.id}</td>
+          <td>${student.name}</td>
+          <td>${student.age}</td>
+          <td>${student.course}</td>
+          <td>${student.skills.join(", ")}</td>
+          <td>${student.email}</td>
+          <td>${student.isEnrolled ? "Так" : "Ні"}</td>
+          <td>
+              <button onclick="editStudent(${student.id})">Редагувати</button>
+              <button onclick="deleteStudent(${student.id})">Видалити</button>
+          </td>
+      `;
+      tbody.appendChild(row);
+    });
+  });
+
+document
+  .getElementById("add-student-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const student = {
+      name: document.getElementById("name").value,
+      age: parseInt(document.getElementById("age").value),
+      course: document.getElementById("course").value,
+      skills: document
+        .getElementById("skills")
+        .value.split(",")
+        .map((skill) => skill.trim()),
+      email: document.getElementById("email").value,
+      isEnrolled: document.getElementById("isEnrolled").checked,
+    };
+
+    await addStudents(student);
+    document.getElementById("add-student-form").reset();
+  });
